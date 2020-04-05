@@ -254,7 +254,6 @@ class Danfe extends DaCommon
                 $this->orientacao = 'P';
             }
         }
-        $this->numero_registro_dpec = $depecNumReg;
         //instancia a classe pdf
         $this->pdf = new Pdf($this->orientacao, 'mm', $this->papel);
         //margens do PDF, em milímetros. Obs.: a margem direita é sempre igual à
@@ -784,7 +783,7 @@ class Danfe extends DaCommon
 
     protected function notaDPEC()
     {
-        return $this->numero_registro_dpec != '';
+        return $this->numdepec != '';
     }
 
     /**
@@ -1055,7 +1054,7 @@ class Danfe extends DaCommon
         } else {
             $aFont = ['font'=>$this->fontePadrao, 'size'=>10, 'style'=>'B'];
             if ($this->notaDpec()) {
-                $texto = $this->numero_registro_dpec;
+                $texto = $this->numdepec;
                 $cStat = '';
             } else {
                 if (isset($this->nfeProc)) {
